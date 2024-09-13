@@ -7,8 +7,6 @@ const imageHandler = require('./imageResponses.js');
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
 const onRequest = (request, response) => {
-  // console.log(request.url);
-
   switch (request.url) {
     case '/':
       htmlHandler.getIndex(request, response);
@@ -28,11 +26,11 @@ const onRequest = (request, response) => {
     case '/timeJSON':
       jsonHandler.getTimeJSON(request, response);
       break;
-    case '/dankmemes':    
+    case '/dankmemes':
       imageHandler.getImage(request, response);
       break;
     default: htmlHandler.getIndex(request, response);
   }
 };
 
-http.createServer(onRequest).listen(port, () => console.log(`Listening on localhost:${port}`));
+http.createServer(onRequest).listen(port);
