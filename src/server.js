@@ -29,6 +29,9 @@ const onRequest = (request, response) => {
     case '/dankmemes':
       imageHandler.getImage(request, response);
       break;
+    case '/rich-client.html':
+      htmlHandler.getRichHtml(request, response);
+      break;
     default: htmlHandler.getIndex(request, response);
   }
 };
